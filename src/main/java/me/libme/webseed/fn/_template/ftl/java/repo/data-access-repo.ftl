@@ -3,7 +3,7 @@ package ${classPackage};
 import me.libme.kernel._c.util.JDateUtils;
 import me.libme.kernel._c._m.JPage;
 import me.libme.kernel._c._m.SimplePageRequest;
-import JJpaDateParam;
+import me.libme.module.spring.jpahibernate.query2.JJpaDateParam;
 import me.libme.webboot.fn.jpa.DataAccessSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;

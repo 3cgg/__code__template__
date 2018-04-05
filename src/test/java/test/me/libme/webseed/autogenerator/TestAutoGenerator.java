@@ -7,14 +7,16 @@ import me.libme.webseed.fn._template.ftl.Config;
 import me.libme.webseed.fn._template.ftl.TemplateRunner;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestAutoGenerator extends TestCase {
 
 	
 	@Test
 	public void testAutoGenerate() throws Exception{
 		Config config=new Config();
-		config.setModelPath("C:\\java_\\git\\jui-api\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\model");
-		config.setUiRelativePath("C:\\java_\\git\\jui-api\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\file");
+		config.setModelPath("C:\\java_\\git\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\model");
+		config.setUiRelativePath("C:\\java_\\git\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\file");
 
 		config.setModuleName("CarManager");
 
