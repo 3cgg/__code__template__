@@ -1,0 +1,100 @@
+	 <!-- Main content -->
+    <section class="content"   id="viewCarSection"   ms-controller="car_view">
+    
+    	<div class="box box-info">
+	        <div class="box-footer">
+	          <button type="button" class="btn btn-primary"
+	          onclick='$(this).goView("/pages/carmanager/car-list.html");'
+	          >返回</button>
+	        </div> 
+      </div>
+    	
+    	<div class="box box-info">
+	    	<!--   .box-header   -->
+	        <div class="box-header with-border">
+	          <h3 class="box-title">明细</h3>
+	          <div class="box-tools pull-right">
+	          </div>
+	        </div>
+	        <!-- /.box-header -->
+	        
+	        <div class="box-body form-horizontal">
+              	<div class="form-group">
+              	
+              	   <label for="name" class="col-sm-1 control-label">品牌</label>
+                   <div class="col-sm-5">
+                   <span id="name"  class="form-control label-form-control">{{data.name}}</span>
+                  </div>
+              	  
+					
+              	
+              	   <label for="color" class="col-sm-1 control-label">颜色</label>
+                   <div class="col-sm-5">
+                   <span id="color"  class="form-control label-form-control">{{data.color}}</span>
+                  </div>
+              	  
+              	</div>
+					
+              	<div class="form-group">
+              	
+              	   <label for="log" class="col-sm-1 control-label">log</label>
+                   <div class="col-sm-5">
+                   <span id="log"  class="form-control label-form-control">{{data.log}}</span>
+                  </div>
+              	  
+					
+              	
+              	   <label for="weight" class="col-sm-1 control-label">重量</label>
+                   <div class="col-sm-5">
+                   <span id="weight"  class="form-control label-form-control">{{data.weight}}</span>
+                  </div>
+              	  
+              	</div>
+					
+              	<div class="form-group">
+              	
+              	   <label for="produceTime" class="col-sm-1 control-label">出厂时间</label>
+                   <div class="col-sm-5">
+                   <span id="produceTime"  class="form-control label-form-control">{{data.produceTime}}</span>
+                  </div>
+              	  
+					
+              	
+              	  
+              	</div>
+					
+	        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+    
+    $_youapp.ready(function(){
+    	
+    	var page=$.extend({
+    		root:$("#viewCarSection"),
+    		model:{
+    			vm:avalon.define({
+    		        $id: "car_view",
+    		        data: {}
+    		    })
+    		}
+    	},$_youapp.pageTemplate);
+    	
+    	avalon.scan(page.root[0], page.model.vm);  // void braces
+    	
+    	function getId(){
+        	return page.root.getViewParam().id;
+        }
+    	
+    	page.ajaxGet({
+			  url:'/carmanager/getCarById',
+			  formData:{'id':getId()},
+			  success:function(data){
+				  page.model.vm.data=data;
+		  		  avalon.scan(page.root[0], page.model.vm);
+			  }
+			});
+    });
+    </script>
+	
+
