@@ -7,7 +7,6 @@ import me.libme.webseed.fn._template.ftl.java.modelrecord.ModelRecordModel;
 import me.libme.webseed.fn._template.ftl.java.repo.DataAccessRepoModel;
 import me.libme.webseed.fn._template.ftl.java.repo.SingleRepoModel;
 import me.libme.webseed.fn._template.ftl.java.service.ServiceModel;
-import me.libme.webseed.fn._template.ftl.ui.UITemplateUIContext;
 
 import java.util.List;
 
@@ -89,10 +88,6 @@ public interface InternalConfig extends Iterable<InternalConfig.ModelConfig> {
 		ControllerModel controllerModel();
 		
 		void setControllerModel(ControllerModel controllerModel);
-		
-		UITemplateUIContext uiTemplateUIContext();
-		
-		void setUITemplateUIContext(UITemplateUIContext uiTemplateUIContext);
 		
 	}
 

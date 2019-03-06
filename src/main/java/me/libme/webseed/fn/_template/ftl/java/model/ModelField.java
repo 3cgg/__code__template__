@@ -8,9 +8,9 @@ import java.lang.reflect.Field;
 public class ModelField implements JModel {
 
 	private String property;
-	
+
 	private String getterMethodName;
-	
+
 	private String setterMethodName;
 
 	private String column;

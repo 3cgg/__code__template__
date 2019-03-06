@@ -3,7 +3,6 @@ package me.libme.webseed.fn._template.ftl;
 import me.libme.kernel._c.tkdd.flow.FlowContext;
 import me.libme.kernel._c.tkdd.flow.SimpleLinkedFlow;
 import me.libme.webseed.fn._template.ftl.java.SingleModelExecutingTask;
-import me.libme.webseed.fn._template.ftl.ui.UISingleModelExecutingTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +18,6 @@ public class TemplateRunner {
 		
 		SingleModelExecutingTask singleModelExecutingTask=new SingleModelExecutingTask();
 		simpleLinkedFlow.put(singleModelExecutingTask);
-
-		UISingleModelExecutingTask uiSingleModelExecutingTask=new UISingleModelExecutingTask();
-		simpleLinkedFlow.put(uiSingleModelExecutingTask);
 		
 		FileWriterTask fileWriterTask=new FileWriterTask();
 		simpleLinkedFlow.put(fileWriterTask);
@@ -30,7 +26,7 @@ public class TemplateRunner {
 		TemplateUtil.setConfig(flowContext, config);
 
 		simpleLinkedFlow.start(flowContext);
-		LOGGER.info("tempate is processed completely.");
+		LOGGER.info("template is processed completely.");
 	}
 	
 }

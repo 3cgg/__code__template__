@@ -16,7 +16,6 @@ public class TestAutoGenerator extends TestCase {
 	public void testAutoGenerate() throws Exception{
 		Config config=new Config();
 		config.setModelPath("C:\\java_\\git\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\model");
-		config.setUiRelativePath("C:\\java_\\git\\__code__template__\\src\\test\\java\\test\\me\\libme\\webseed\\autogenerator\\demo\\file");
 
 		config.setModuleName("CarManager");
 

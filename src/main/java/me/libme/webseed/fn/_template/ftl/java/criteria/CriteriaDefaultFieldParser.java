@@ -2,7 +2,6 @@ package me.libme.webseed.fn._template.ftl.java.criteria;
 
 
 import me.libme.kernel._c.util.JClassUtils;
-import me.libme.webboot.Copy;
 import me.libme.webseed.fn._template.ftl.InternalConfig;
 import me.libme.webseed.fn._template.ftl.KeyNames;
 import me.libme.webseed.fn._template.ftl.java.model.ModelField;
@@ -16,9 +15,9 @@ public class CriteriaDefaultFieldParser implements CriteriaFieldParser{
 	@Override
 	public List<ModelField> parse(InternalConfig.ModelConfig modelConfig) throws Exception {
 		List<ModelField> modelFields= modelConfig.modelModel().getModelFields();
-		List<ModelField> criteriaModelFields=new ArrayList<ModelField>();
+		List<ModelField> criteriaModelFields=new ArrayList<>();
 		for(ModelField modelField:modelFields){
-			ModelField criteriaModelField= Copy.simpleCopy(modelField, ModelField.class);
+			ModelField criteriaModelField= modelField;
 			if(Date.class.isAssignableFrom(criteriaModelField.getField().getType())){
 				//start time
 				ModelField appendModelField=new ModelField();

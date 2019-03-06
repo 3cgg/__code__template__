@@ -8,7 +8,6 @@ import me.libme.webseed.fn._template.ftl.java.modelrecord.ModelRecordModel;
 import me.libme.webseed.fn._template.ftl.java.repo.DataAccessRepoModel;
 import me.libme.webseed.fn._template.ftl.java.repo.SingleRepoModel;
 import me.libme.webseed.fn._template.ftl.java.service.ServiceModel;
-import me.libme.webseed.fn._template.ftl.ui.UITemplateUIContext;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -107,8 +106,6 @@ public class DefaultInternalConfig implements InternalConfig{
 		
 
 		private ControllerModel controllerModel;
-		
-		private UITemplateUIContext uiTemplateUIContext;
 		
 		public DefaultModelConfig(InternalConfig internalConfig,String modelName) {
 			this.internalConfig=internalConfig;
@@ -226,18 +223,6 @@ public class DefaultInternalConfig implements InternalConfig{
 			this.controllerModel=controllerModel;
 		}
 
-		@Override
-		public UITemplateUIContext uiTemplateUIContext() {
-			return uiTemplateUIContext;
-		}
-
-		@Override
-		public void setUITemplateUIContext(
-				UITemplateUIContext uiTemplateUIContext) {
-			this.uiTemplateUIContext=uiTemplateUIContext;
-		}
-		
-		
 	}
 	
 
