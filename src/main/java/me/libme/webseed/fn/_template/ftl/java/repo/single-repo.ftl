@@ -2,10 +2,10 @@ package ${classPackage};
 
 import ${modelModel.className};
 
-import me.libme.webboot.fn.jpa.ISingleEntityAccess;
+import me.libme.module.spring.mybatis.IMybatisSingleEntityAccess;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ${simpleClassName} extends ISingleEntityAccess<${modelModel.simpleClassName},String> {
+public interface ${simpleClassName} extends IMybatisSingleEntityAccess<${modelModel.simpleClassName},String> {
 
 }

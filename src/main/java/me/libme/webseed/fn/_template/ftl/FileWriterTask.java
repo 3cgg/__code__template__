@@ -26,6 +26,11 @@ public class FileWriterTask extends TemplateTask{
 					targetFileWrappers.add(fileWrapper);
 				}
 			}
+			if(getConfig().isMapperXmlCode()){
+				if(fileWrapper.getFile().getName().endsWith(".xml")){
+					targetFileWrappers.add(fileWrapper);
+				}
+			}
 			if(getConfig().isUiCode()){
 				if(fileWrapper.getFile().getName().endsWith(".html")){
 					targetFileWrappers.add(fileWrapper);

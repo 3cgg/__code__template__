@@ -1,17 +1,26 @@
 package test.me.libme.webseed.autogenerator.demo.model;
 
+import me.libme.webseed.fn._template.ftl.java.InfoColumn;
+import me.libme.webseed.fn._template.ftl.java.InfoTable;
+
 import java.util.Date;
 
+@InfoTable("t_car")
 public class Car {
 
+    @InfoColumn("_name")
     private String name;
 
+    @InfoColumn(value = "color",lable = "颜色")
     private String color;
 
+    @InfoColumn(value = "log",lable = "品牌")
     private String log;
 
+    @InfoColumn(value = "weight",lable = "重量",jdbcType = "DOUBLE")
     private double weight;
 
+    @InfoColumn(value = "produce_time",lable = "生产日期",jdbcType = "DATE")
     private Date produceTime;
 
     /**

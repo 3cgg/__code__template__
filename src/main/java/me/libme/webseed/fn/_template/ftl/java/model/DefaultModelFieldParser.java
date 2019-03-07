@@ -4,6 +4,7 @@ import me.libme.kernel._c._ref.JDefaultFieldMeta;
 import me.libme.kernel._c.bean.SimpleFieldOnClassFinder;
 import me.libme.webseed.fn._template.ftl.KeyNames;
 import me.libme.webseed.fn._template.ftl.TemplateUtil;
+import me.libme.webseed.fn._template.ftl.java.InfoColumn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class DefaultModelFieldParser implements ModelFieldParser {
 		SimpleFieldOnClassFinder simpleFieldOnClassFinder
 					=new SimpleFieldOnClassFinder(clazz);
 		List<JDefaultFieldMeta> defaultFieldMetas= simpleFieldOnClassFinder.find();
-		List<ModelField> modelFields=new ArrayList<ModelField>();
+		List<ModelField> modelFields=new ArrayList<>();
 		for(JDefaultFieldMeta defaultFieldMeta:defaultFieldMetas){
 			ModelField modelField=new ModelField();
 			modelField.setProperty(defaultFieldMeta.getFieldName());
@@ -26,6 +27,15 @@ public class DefaultModelFieldParser implements ModelFieldParser {
 			modelField.setGetterMethodName(defaultFieldMeta.getGetterMethodName());
 			modelField.setFieldType(TemplateUtil.type(defaultFieldMeta.getField()));
 			modelField.setSourceType(KeyNames.SOURCE_TYPE_CLASS);
+			MybatisColumnInfo mybatisColumnInfo=new MybatisColumnInfo();
+			InfoColumn infoColumn=defaultFieldMeta.getField().getAnnotation(InfoColumn.class);
+			if(infoColumn!=null){
+				modelField.setColumn(infoColumn.value());
+				mybatisColumnInfo.setJdbcType(infoColumn.jdbcType());
+			}else {
+				mybatisColumnInfo.setJdbcType("VARCHAR");
+			}
+			modelField.setMybatisColumnInfo(mybatisColumnInfo);
 			modelFields.add(modelField);
 		}
 		return modelFields;

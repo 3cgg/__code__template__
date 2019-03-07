@@ -1,7 +1,13 @@
 package me.libme.webseed.fn._template.ftl;
 
+import freemarker.cache.ClassTemplateLoader;
+import freemarker.cache.FileTemplateLoader;
+import freemarker.cache.MultiTemplateLoader;
+import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
+
+import java.io.File;
 
 public class FtlConfig {
 
@@ -21,7 +27,13 @@ public class FtlConfig {
 
 			        /* Create and adjust the configuration singleton */
 			        cfg = new Configuration(Configuration.VERSION_2_3_23);
-			        cfg.setClassForTemplateLoading(FtlConfig.class, "");
+
+					FileTemplateLoader fileTemplateLoader = new FileTemplateLoader(new File("c:/template-ftl-loading"));
+					ClassTemplateLoader classTemplateLoader = new ClassTemplateLoader(FtlConfig.class, "");
+					TemplateLoader[] loaders = new TemplateLoader[] { fileTemplateLoader,classTemplateLoader};
+					MultiTemplateLoader multiTemplateLoader = new MultiTemplateLoader(loaders);
+
+					cfg.setTemplateLoader(multiTemplateLoader);
 			        cfg.setDefaultEncoding("UTF-8");
 			        cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 			        cfg.setLogTemplateExceptions(true);

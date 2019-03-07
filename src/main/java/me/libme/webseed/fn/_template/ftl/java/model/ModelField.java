@@ -36,8 +36,17 @@ public class ModelField implements JModel {
 	 * like someTimeStart is related to someTimeEnd
 	 */
 	private String relatedProperty;
-	
-	
+
+	private MybatisColumnInfo mybatisColumnInfo;
+
+	public MybatisColumnInfo getMybatisColumnInfo() {
+		return mybatisColumnInfo;
+	}
+
+	public void setMybatisColumnInfo(MybatisColumnInfo mybatisColumnInfo) {
+		this.mybatisColumnInfo = mybatisColumnInfo;
+	}
+
 	public String getProperty() {
 		return property;
 	}

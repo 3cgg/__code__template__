@@ -1,7 +1,7 @@
 package me.libme.webseed.fn._template.ftl;
 
-import me.libme.webseed.fn._template.ftl.java.model.DefaultModelFieldParser;
-import me.libme.webseed.fn._template.ftl.java.model.ModelFieldParser;
+import me.libme.webseed.fn._template.ftl.java.model.DefaultModelInfoEnhancer;
+import me.libme.webseed.fn._template.ftl.java.model.ModelInfoEnhancer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,12 +39,14 @@ public class Config {
 	/**
 	 * how to parser model fields ( properties )
 	 */
-	private Class<? extends ModelFieldParser> modelFieldParserClass
-			=DefaultModelFieldParser.class;
+	private Class<? extends ModelInfoEnhancer> modelInfoEnhancerClass
+			=DefaultModelInfoEnhancer.class;
 	
 	private boolean javaCode=true;
 	
 	private boolean uiCode=true;
+
+	private boolean mapperXmlCode=true;
 	
 	public String getModelPath() {
 		return modelPath;
@@ -71,13 +73,12 @@ public class Config {
 		this.moduleName = moduleName;
 	}
 
-	public Class<? extends ModelFieldParser> getModelFieldParserClass() {
-		return modelFieldParserClass;
+	public Class<? extends ModelInfoEnhancer> getModelInfoEnhancerClass() {
+		return modelInfoEnhancerClass;
 	}
 
-	public void setModelFieldParserClass(
-			Class<? extends ModelFieldParser> modelFieldParserClass) {
-		this.modelFieldParserClass = modelFieldParserClass;
+	public void setModelInfoEnhancerClass(Class<? extends ModelInfoEnhancer> modelInfoEnhancerClass) {
+		this.modelInfoEnhancerClass = modelInfoEnhancerClass;
 	}
 
 	public String getUiRelativePath() {
@@ -120,7 +121,13 @@ public class Config {
 		this.uiCode = uiCode;
 	}
 
+	public boolean isMapperXmlCode() {
+		return mapperXmlCode;
+	}
 
+	public void setMapperXmlCode(boolean mapperXmlCode) {
+		this.mapperXmlCode = mapperXmlCode;
+	}
 
 	public static class FieldConfig{
 		
