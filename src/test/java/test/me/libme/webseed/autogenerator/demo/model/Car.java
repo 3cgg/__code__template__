@@ -11,16 +11,16 @@ public class Car {
     @InfoColumn("_name")
     private String name;
 
-    @InfoColumn(value = "color",lable = "颜色")
+    @InfoColumn(value = "color",label = "颜色")
     private String color;
 
-    @InfoColumn(value = "log",lable = "品牌")
+    @InfoColumn(value = "log",label = "品牌")
     private String log;
 
-    @InfoColumn(value = "weight",lable = "重量",jdbcType = "DOUBLE")
+    @InfoColumn(value = "weight",label = "重量",jdbcType = "DOUBLE")
     private double weight;
 
-    @InfoColumn(value = "produce_time",lable = "生产日期",jdbcType = "DATE")
+    @InfoColumn(value = "produce_time",label = "生产日期",jdbcType = "DATE")
     private Date produceTime;
 
     /**

@@ -15,7 +15,7 @@ public @interface InfoColumn {
 
     String value();
 
-    String lable() default "";
+    String label() default "";
 
     String jdbcType() default "VARCHAR";
 
