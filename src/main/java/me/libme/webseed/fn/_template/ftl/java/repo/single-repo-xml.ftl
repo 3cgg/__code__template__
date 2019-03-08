@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="${classPackage}.${simpleClassName}" >
 
-    <resultMap id="BaseResultMap" type="${modelModel.className}" >
+    <resultMap id="${modelModel.simpleClassName}ResultMap" type="${modelModel.className}" >
 
         <#list modelModel.modelFields as modelField>
             <#if  modelField.property!="id"
@@ -27,7 +27,7 @@
         <result column="VERSION" property="version" jdbcType="INTEGER" />
     </resultMap>
 
-    <sql id="Base_Column_List" >
+    <sql id="${modelModel.simpleClassName}_Column_List" >
     <#list modelModel.modelFields as modelField>
         <#if  modelField.property!="id"
         &&modelField.property!="createId"
@@ -47,9 +47,9 @@
     </sql>
 
 
-    <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <select id="getById" resultMap="${modelModel.simpleClassName}ResultMap" parameterType="java.lang.String" >
         select
-        <include refid="Base_Column_List" />
+        <include refid="${modelModel.simpleClassName}_Column_List" />
         from ${modelModel.tableName}
         <#noparse>where id = #{id,jdbcType=VARCHAR}</#noparse>
     </select>

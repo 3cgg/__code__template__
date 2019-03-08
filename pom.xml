@@ -84,6 +84,18 @@
             <version>1.23</version>
         </dependency>
 
+        <dependency>
+            <groupId>libme.modules</groupId>
+            <artifactId>cpp-mybatis-base</artifactId>
+            <version>1.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
 

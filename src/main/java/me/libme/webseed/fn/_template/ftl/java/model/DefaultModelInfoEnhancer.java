@@ -2,8 +2,8 @@ package me.libme.webseed.fn._template.ftl.java.model;
 
 import me.libme.kernel._c.util.Assert;
 import me.libme.kernel._c.util.JClassUtils;
+import me.libme.module.spring.mybatis.fn.mark.Table;
 import me.libme.webseed.fn._template.ftl.InternalConfig;
-import me.libme.webseed.fn._template.ftl.java.InfoTable;
 
 import java.util.List;
 
@@ -20,10 +20,10 @@ public class DefaultModelInfoEnhancer implements ModelInfoEnhancer {
         List<ModelField> modelFields= modelFieldParser.parse(modelClass);
         modelModel.setModelFields(modelFields);
 
-        InfoTable infoTable= (InfoTable) modelClass.getDeclaredAnnotation(InfoTable.class);
+        Table infoTable= (Table) modelClass.getDeclaredAnnotation(Table.class);
         Assert.isTrue(infoTable!=null,"table name is empty.");
 
-        modelModel.setTableName(infoTable.value());
+        modelModel.setTableName(infoTable.name());
 
         return modelModel;
     }

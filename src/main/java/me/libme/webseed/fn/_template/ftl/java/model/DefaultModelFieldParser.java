@@ -2,9 +2,9 @@ package me.libme.webseed.fn._template.ftl.java.model;
 
 import me.libme.kernel._c._ref.JDefaultFieldMeta;
 import me.libme.kernel._c.bean.SimpleFieldOnClassFinder;
+import me.libme.module.spring.mybatis.fn.mark.Column;
 import me.libme.webseed.fn._template.ftl.KeyNames;
 import me.libme.webseed.fn._template.ftl.TemplateUtil;
-import me.libme.webseed.fn._template.ftl.java.InfoColumn;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,9 @@ public class DefaultModelFieldParser implements ModelFieldParser {
 			modelField.setFieldType(TemplateUtil.type(defaultFieldMeta.getField()));
 			modelField.setSourceType(KeyNames.SOURCE_TYPE_CLASS);
 			MybatisColumnInfo mybatisColumnInfo=new MybatisColumnInfo();
-			InfoColumn infoColumn=defaultFieldMeta.getField().getAnnotation(InfoColumn.class);
+			Column infoColumn=defaultFieldMeta.getField().getAnnotation(Column.class);
 			if(infoColumn!=null){
-				modelField.setColumn(infoColumn.value());
+				modelField.setColumn(infoColumn.name());
 				mybatisColumnInfo.setJdbcType(infoColumn.jdbcType());
 			}else {
 				mybatisColumnInfo.setJdbcType("VARCHAR");

@@ -1,26 +1,28 @@
 package test.me.libme.webseed.autogenerator.demo.model;
 
-import me.libme.webseed.fn._template.ftl.java.InfoColumn;
-import me.libme.webseed.fn._template.ftl.java.InfoTable;
+
+
+import me.libme.module.spring.mybatis.fn.mark.Column;
+import me.libme.module.spring.mybatis.fn.mark.Table;
 
 import java.util.Date;
 
-@InfoTable("t_car")
+@Table(name="t_car")
 public class Car {
 
-    @InfoColumn("_name")
+    @Column(name = "_name")
     private String name;
 
-    @InfoColumn(value = "color",label = "颜色")
+    @Column(name = "color",label = "颜色")
     private String color;
 
-    @InfoColumn(value = "log",label = "品牌")
+    @Column(name = "log",label = "品牌")
     private String log;
 
-    @InfoColumn(value = "weight",label = "重量",jdbcType = "DOUBLE")
+    @Column(name = "weight",label = "重量",jdbcType = "DOUBLE")
     private double weight;
 
-    @InfoColumn(value = "produce_time",label = "生产日期",jdbcType = "DATE")
+    @Column(name = "produce_time",label = "生产日期",jdbcType = "DATE")
     private Date produceTime;
 
     /**
