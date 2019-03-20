@@ -4,9 +4,9 @@ package ${classPackage};
 import me.libme.kernel._c._m.JPage;
 import me.libme.kernel._c._m.SimplePageRequest;
 
-import me.libme.webseed.web.ClosureException;
+import me.libme.webboot.fn._controller.exception.ClosureException;
 import me.libme.webboot.ResponseModel;
-import me.libme.webseed.web.SimplePageRequestVO;
+import me.libme.webboot.SimplePageRequestVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

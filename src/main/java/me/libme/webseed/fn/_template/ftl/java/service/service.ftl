@@ -3,9 +3,9 @@ package ${classPackage};
 
 import me.libme.kernel._c._m.JPage;
 import me.libme.kernel._c._m.SimplePageRequest;
-import me.libme.webboot.Copy;
+import me.libme.kernel._c.util.BeanCopy;
 
-import me.libme.webseed.web.ClosureException;
+import me.libme.webboot.fn._controller.exception.ClosureException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +32,7 @@ public class ${simpleClassName}  {
 
 
     private ${modelModel.simpleClassName} to${modelModel.simpleClassName}(${modelRecordModel.simpleClassName} ${modelRecordModel.variableName}){
-        ${modelModel.simpleClassName} ${modelModel.variableName}= Copy.simpleCopy(${modelRecordModel.variableName},${modelModel.simpleClassName}.class);
+        ${modelModel.simpleClassName} ${modelModel.variableName}= BeanCopy.flat(${modelRecordModel.variableName},${modelModel.simpleClassName}.class);
     	return ${modelModel.variableName};
     }
 
@@ -50,7 +50,7 @@ public class ${simpleClassName}  {
 	 */
 	public void ${serviceModel.updateMethodName} (${modelRecordModel.simpleClassName} ${modelRecordModel.variableName}) throws Exception{
 
-		${modelModel.simpleClassName} db${modelModel.simpleClassName}=${singleRepoModel.variableName}.active(${modelRecordModel.variableName}.getId());
+		${modelModel.simpleClassName} db${modelModel.simpleClassName}=${singleRepoModel.variableName}.getById(${modelRecordModel.variableName}.getId());
 
         <#list modelModel.modelFields as modelField>
         <#if  modelField.property!="id"
@@ -79,7 +79,7 @@ public class ${simpleClassName}  {
 	 * get
 	 */
 	public ${modelRecordModel.simpleClassName} ${serviceModel.getMethodName} (String id) throws Exception{
-		return ${singleRepoModel.variableName}.active(id,${modelRecordModel.simpleClassName}.class);
+		return BeanCopy.flat(${singleRepoModel.variableName}.getById(id),${modelRecordModel.simpleClassName}.class);
 	}
 
 	

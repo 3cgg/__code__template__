@@ -4,6 +4,7 @@
 
     <resultMap id="${modelModel.simpleClassName}ResultMap" type="${modelModel.className}" >
 
+        <id column="id" property="id" jdbcType="VARCHAR" />
         <#list modelModel.modelFields as modelField>
             <#if  modelField.property!="id"
             &&modelField.property!="createId"
@@ -16,9 +17,6 @@
                 <result column="${modelField.column}" property="${modelField.property}" jdbcType="${modelField.mybatisColumnInfo.jdbcType}" />
             </#if>
         </#list>
-
-
-        <id column="id" property="id" jdbcType="VARCHAR" />
         <result column="CREATE_ID" property="createId" jdbcType="VARCHAR" />
         <result column="UPDATE_ID" property="updateId" jdbcType="VARCHAR" />
         <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
