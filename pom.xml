@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>libme.jui-api</groupId>
-    <artifactId>jui-api-code-template</artifactId>
+    <groupId>libme.modules.template</groupId>
+    <artifactId>cpp-code-template</artifactId>
     <version>2.0.0</version>
 
-    <name>jui-api-code-template</name>
+    <name>cpp-code-template</name>
 
 
 
